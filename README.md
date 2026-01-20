@@ -18,7 +18,14 @@ Học phần Phát triển phần mềm quản lý
 3. Tài liệu môn học
     - Slide bài giảng: https://drive.google.com/drive/folders/1HQXd0UEd4v293ILj8vrp7ziWy4oBmM7E?usp=sharing
     - Tài liệu của microsoft: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-10.0&tabs=visual-studio-code
-4. Bài thực hành
+4. Buổi học số 3
+   - Tạo project với lệnh "dotnet new..." sau đó đẩy lên github
+   - Tìm hiểu cấu trúc thư mục của dự án .Net MVC => Trình bày trong file README.md
+   - Tìm hiểu về định tuyến (Route) trong .Net MVC => trình bày trong file README.md
+   - Tìm hiểu về namespace trong C#
+   - Tìm hiểu về Controller, View trong .Net MVC => trình bày trong file README.md
+   - Tạo DemoController và View Index trả về thông báo "Hello + Họ tên và mã sinh viên"
+5. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
