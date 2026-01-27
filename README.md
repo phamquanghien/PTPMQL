@@ -25,7 +25,17 @@ Học phần Phát triển phần mềm quản lý
    - Tìm hiểu về namespace trong C#
    - Tìm hiểu về Controller, View trong .Net MVC => trình bày trong file README.md
    - Tạo DemoController và View Index trả về thông báo "Hello + Họ tên và mã sinh viên"
-5. Bài thực hành
+   - Đẩy mã nguồn lên github với commit "BaiThucHanhSo3"
+5. Buổi học số 4
+   - Tìm hiểu về ViewBag trong MVC
+   - Lấy ví dụ sử dụng ViewBag để gửi dữ liệu từ Controller về View
+   - Tìm hiểu về gửi nhận dữ liệu giữa View và Controller thông qua Submit form.
+   - Lấy ví dụ: nhập họ tên trên view gửi dữ liệu lên controller, controller xử lý và gửi thông báo "Xin chào " + Họ tên về hiển thị lên view.
+   - Tìm hiểu về Models, tạo class Student có 2 thuộc tính: StudentCode, FullName
+   - Xây dựng chức năng gửi nhận dữ liệu kiểu Student giữa View và Controller (StudentController).
+   - Tìm hiểu về Layout, bổ sung thêm điều hướng tới StudentController
+   - Đẩy mã nguồn lên github với commit "BaiThucHanhSo4"
+6. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
