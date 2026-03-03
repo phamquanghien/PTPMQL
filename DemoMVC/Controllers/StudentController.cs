@@ -1,10 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using DemoMVC.Models.Entities;
 namespace DemoMVC.Controllers
 {
+
+    using Microsoft.AspNetCore.Mvc;
+    using DemoMVC.Models.Entities;
+
     public class StudentController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -12,7 +13,7 @@ namespace DemoMVC.Controllers
         [HttpPost]
         public IActionResult Index(Student std)
         {
-            ViewBag.ThongBao = "Xin chào: " + std.FullName + " - Mã sinh viên: " + std.StudentCode;
+            ViewBag.ThongBao = std.StudentCode + " - " + std.FullName;
             return View();
         }
     }

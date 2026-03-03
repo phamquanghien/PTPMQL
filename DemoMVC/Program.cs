@@ -24,10 +24,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
-// http://localhost:5051/ <=>  http://localhost:5051/Home/Index
-// http://localhost:5051/Demo
-
-
+// http://localhost:5262/controller/Action/
+// http://localhost:5262/ <=> http://localhost:5262/Home/
+// http://localhost:5262/Demo/Test
 
 app.Run();

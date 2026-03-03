@@ -35,7 +35,13 @@ Học phần Phát triển phần mềm quản lý
    - Xây dựng chức năng gửi nhận dữ liệu kiểu Student giữa View và Controller (StudentController).
    - Tìm hiểu về Layout, bổ sung thêm điều hướng tới StudentController
    - Đẩy mã nguồn lên github với commit "BaiThucHanhSo4"
-6. Bài thực hành
+6. Buổi học số 5: Kết nối với cơ sở dữ liệu
+   - Cài đặt tool hỗ trợ quản lý phiên bản CSDL (Migrations), tool hỗ trợ sinh mã nguồn
+   - Cài đặt các package (các gói hỗ trợ để kết nối và làm việc với cơ sở dữ liệu)
+   - Tạo file Data/ApplicationDBContext.cs
+   - Cấu hình ở file appsettings.json
+   - Cấu hình ở file Program.cs
+7. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
