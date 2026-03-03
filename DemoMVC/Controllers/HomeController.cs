@@ -10,12 +10,6 @@ public class HomeController : Controller
     {
         return View();
     }
-    [HttpPost]
-    public IActionResult Index(string FullName, string StudentCode)
-    {
-        ViewBag.ThongBao = "Xin chào: " + FullName + " - Mã sinh viên: " + StudentCode;
-        return View();
-    }
 
     public IActionResult Privacy()
     {
