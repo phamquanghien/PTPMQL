@@ -43,8 +43,28 @@ Học phần Phát triển phần mềm quản lý
    - Cấu hình ở file Program.cs
    - Khai báo DbSet trong ApplicationDbContext.cs
    - Sử dụng Migrations để tạo cơ sở dữ liệu
-7. Bài thực hành
+7. Buổi học số 6: Xây dựng chức năng CRUD (Create, Read, Update, Delete)
+   - Tạo class trong model => sử dụng migrations để tạo ra các bảng tương ứng
+   - Xây dựng chức năng hiển thị dữ liệu:
+        + Tạo controller => tạo action lấy dữ liệu từ CSDL (sử dụng dbContext)
+        + Trả dữ liệu về view
+        + Tạo view => Hiển thị dữ liệu
+    - Xây dựng chức năng thêm mới dữ liệu (Create)
+        + Tạo action trả view cho phép nhập dữ liệu
+        + Tạo view cho phép nhập dữ liệu
+        + Submit form để gửi dữ liệu từ view => controller
+        + Controller nhận dữ liệu và lưu vào trong CSDL
+    - Xây dựng chức năng chỉnh sửa dữ liệu (Update)
+        + Tạo action lấy dữ liệu của bản ghi muốn sửa => trả dữ liệu về View
+        + Tạo view Edit để hiển thị dữ liệu bản ghi muốn chỉnh sửa
+        + Nhận dữ liệu từ view gửi lên và tiến hành lưu vào CSDL
+    - Xây dựng chức năng chỉnh xoá dữ liệu (Delete)
+        + Tạo action lấy dữ liệu của bản ghi muốn xoá => trả dữ liệu về View
+        + Hiển thị form xác nhận có đồng ý xoá hay không
+        + Huỷ không xoá/Xác nhận xoá => Submit for delete => Xoá bỏ khỏi dbContext => Lưu thay đổi vào CSDL
+8. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần CSS (https://www.w3schools.com/bootstrap5/index.php) hết phần Form, deadline: 20/01/2026
+    - Bài thực hành Buổi 6: Xây dựng chức năng CRUD với đối tượng Student

@@ -16,28 +16,10 @@ namespace DemoMVC.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.3");
 
-            modelBuilder.Entity("DemoMVC.Models.Entities.Product", b =>
-                {
-                    b.Property<int>("ProductID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ProductID");
-
-                    b.ToTable("Products");
-                });
-
             modelBuilder.Entity("DemoMVC.Models.Entities.Student", b =>
                 {
                     b.Property<string>("StudentCode")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("Age")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("FullName")
                         .IsRequired()

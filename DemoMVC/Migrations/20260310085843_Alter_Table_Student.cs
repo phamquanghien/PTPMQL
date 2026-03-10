@@ -19,21 +19,11 @@ namespace DemoMVC.Migrations
                 oldClrType: typeof(string),
                 oldType: "TEXT",
                 oldNullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "Age",
-                table: "Students",
-                type: "INTEGER",
-                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Age",
-                table: "Students");
-
             migrationBuilder.AlterColumn<string>(
                 name: "FullName",
                 table: "Students",
