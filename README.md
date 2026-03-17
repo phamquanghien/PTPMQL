@@ -62,9 +62,17 @@ Học phần Phát triển phần mềm quản lý
         + Tạo action lấy dữ liệu của bản ghi muốn xoá => trả dữ liệu về View
         + Hiển thị form xác nhận có đồng ý xoá hay không
         + Huỷ không xoá/Xác nhận xoá => Submit for delete => Xoá bỏ khỏi dbContext => Lưu thay đổi vào CSDL
-8. Bài thực hành
+8. Buổi học số 7: CRUD (Tiếp tục)
+    - Sử dụng Data Annotation trong kiểm tra (validation) dữ liệu đầu vào
+        + Namespace: System.ComponentModel.DataAnnotations
+        + Sử dụng các thuộc tính (attribute) như: Required, Range, EmailAddress, StringLength... => validate dữ liệu ở model
+        + Validate dữ liệu ở view: asp-validation-for 
+        + Validate dữ liệu ở controller: if(ModelState.IsValid)
+    - Tạo trang NotFound để xử lý khi không tìm thấy dữ liệu
+9.  Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần CSS (https://www.w3schools.com/bootstrap5/index.php) hết phần Form, deadline: 20/01/2026
     - Bài thực hành Buổi 6: Xây dựng chức năng CRUD với đối tượng Student
+    - Bài thực hành Buổi 7: Hoàn thiện chức năng CRUD có validate dữ liệu với đối tượng Student
