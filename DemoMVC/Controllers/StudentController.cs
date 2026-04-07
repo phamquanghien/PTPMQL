@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models.Entities;
+using DemoMVC.Models.ViewModels;
 
 namespace DemoMVC.Controllers
 {
@@ -22,7 +23,15 @@ namespace DemoMVC.Controllers
         // GET: Student
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Students.ToListAsync());
+            var result = await _context.Students
+                            .Select(s => new StudentVM
+                            {
+                                StudentCode = s.StudentCode,
+                                FullName = s.FullName,
+                                FacultyName = s.Faculty!.FacultyName
+                            })
+                            .ToListAsync();
+            return View(result);
         }
 
         // GET: Student/Details/5
