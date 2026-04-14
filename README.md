@@ -73,7 +73,13 @@ Học phần Phát triển phần mềm quản lý
     - Liên kết khoá ngoại trong code first
     - LinQ
     - ViewModel để hiển thị dữ liệu giữa nhiều bảng
-10. Bài thực hành
+10. Buổi học số 9: Ôn tập các nội dung
+    - Tạo class
+    - Sử dụng migrations
+    - Tạo liên kết khoá ngoại
+    - Sử dụng ViewModel
+    - Làm bài thực hành Buổi 9
+11. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
@@ -83,3 +89,10 @@ Học phần Phát triển phần mềm quản lý
     - Bài thực hành Buổi 8:
         + Tạo class Faculty và Student (nếu chưa có), tạo liên kết khoá ngoại thông qua FacultyID (một khoa có nhiều sinh viên, một sinh viên chỉ thuộc một khoa)
         + Tạo ViewModel để hiển thị dữ liệu sinh viên và khoa bao gồm: Mã sinh viên, họ tên, Khoa
+    - Bài thực hành Buổi 9: Tạo class: Khách hàng, Đơn hàng, Chi tiết đơn hàng, Sản phẩm với yêu cầu:
+        + Một khách hàng có nhiều đơn hàng
+        + Một đơn hàng thuộc 1 khách hàng
+        + Một đơn hàng có nhiều sản phẩm lưu ở chi tiết đơn hàng
+        + Ràng buộc dữ liệu các thuộc tính trên model
+        + Xây dựng chức năng CRUD với các bảng dữ liệu trên
+        + Xây dựng chức năng cho phép xem thông tin chi tiết các đơn hàng mà một khác hàng đã mua.
