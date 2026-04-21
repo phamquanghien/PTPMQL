@@ -79,7 +79,12 @@ Học phần Phát triển phần mềm quản lý
     - Tạo liên kết khoá ngoại
     - Sử dụng ViewModel
     - Làm bài thực hành Buổi 9
-11. Bài thực hành
+11. Buổi học số 10: Đọc dữ liệu từ excel và lưu vào cơ sở dữ liệu
+    - Xác định dữ liệu cần đọc và lưu vào CSDL => Tạo file excel mẫu tương ứng
+    - Cài đặt package hỗ trợ làm việc với excel, ví dụ Epplus, ClosedXML...
+    - Tạo giao diện upload file excel
+    - Upload file excel và đọc dữ liệu từ file excel => Lưu vào CSDL
+12. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
@@ -96,3 +101,4 @@ Học phần Phát triển phần mềm quản lý
         + Ràng buộc dữ liệu các thuộc tính trên model
         + Xây dựng chức năng CRUD với các bảng dữ liệu trên
         + Xây dựng chức năng cho phép xem thông tin chi tiết các đơn hàng mà một khác hàng đã mua.
+    - Bài thực hành BUổi 10: Xây dựng chức năng đọc dữ liệu từ file excel và lưu vào bảng Student
