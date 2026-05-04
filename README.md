@@ -102,3 +102,9 @@ Học phần Phát triển phần mềm quản lý
         + Xây dựng chức năng CRUD với các bảng dữ liệu trên
         + Xây dựng chức năng cho phép xem thông tin chi tiết các đơn hàng mà một khác hàng đã mua.
     - Bài thực hành BUổi 10: Xây dựng chức năng đọc dữ liệu từ file excel và lưu vào bảng Student
+    - Bài thực hành Buổi 12: Xây dựng chương trình "Quản lý kho thiết bị điện tử" với yêu cầu sau
+        + Quản lý nhà cung cấp (CRUD)
+        + Quản lý loại thiết bị (CRUD + Tìm kiếm)
+        + Quản lý thiết bị (CRUD + Tìm kiếm)
+        + Quản lý nhập kho: Quản lý được các phiếu nhập kho, một phiếu nhập có thông tin nhiều thiết bị (đơn giá nhập, số lượng, thành tiền...)
+        + Quản lý Xuất kho: uản lý được các phiếu xuất kho, một phiếu xuất có thông tin nhiều thiết bị (đơn giá xuất, số lượng, thành tiền...)
