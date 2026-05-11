@@ -35,5 +35,30 @@ namespace DemoMVC.Controllers
 
             return PartialView("_BookTable", result);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return PartialView("_Create");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Book book)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("_Create", book);
+            }
+
+            book.CreatedDate = DateTime.Now;
+
+            _context.Books.Add(book);
+
+            await _context.SaveChangesAsync();
+
+            return Json(new
+            {
+                success = true
+            });
+        }
     }
 }
