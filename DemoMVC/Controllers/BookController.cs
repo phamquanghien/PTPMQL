@@ -60,5 +60,51 @@ namespace DemoMVC.Controllers
                 success = true
             });
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var book = await _context.Books.FindAsync(id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("_Edit", book);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Book book)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("_Edit", book);
+            }
+
+            var existingBook = await _context.Books.FindAsync(book.Id);
+
+            if (existingBook == null)
+            {
+                return NotFound();
+            }
+
+            existingBook.ISBN = book.ISBN;
+            existingBook.Title = book.Title;
+            existingBook.Author = book.Author;
+            existingBook.Publisher = book.Publisher;
+            existingBook.PublishYear = book.PublishYear;
+            existingBook.Price = book.Price;
+            existingBook.Quantity = book.Quantity;
+            existingBook.Category = book.Category;
+            existingBook.Description = book.Description;
+            existingBook.IsAvailable = book.IsAvailable;
+
+            await _context.SaveChangesAsync();
+
+            return Json(new
+            {
+                success = true
+            });
+        }
     }
 }
