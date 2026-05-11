@@ -106,5 +106,43 @@ namespace DemoMVC.Controllers
                 success = true
             });
         }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var book = await _context.Books
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("_Delete", book);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(Book book)
+        {
+            var existingBook = await _context.Books
+                .FindAsync(book.Id);
+
+            if (existingBook == null)
+            {
+                return Json(new
+                {
+                    success = false
+                });
+            }
+
+            _context.Books.Remove(existingBook);
+
+            await _context.SaveChangesAsync();
+
+            return Json(new
+            {
+                success = true
+            });
+        }
     }
 }
