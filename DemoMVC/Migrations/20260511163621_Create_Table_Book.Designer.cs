@@ -3,6 +3,7 @@ using System;
 using DemoMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260511163621_Create_Table_Book")]
+    partial class Create_Table_Book
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.3");
@@ -64,7 +67,7 @@ namespace DemoMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Customer", b =>
@@ -84,7 +87,7 @@ namespace DemoMVC.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Faculty", b =>
@@ -98,7 +101,7 @@ namespace DemoMVC.Migrations
 
                     b.HasKey("FacultyId");
 
-                    b.ToTable("Faculties", (string)null);
+                    b.ToTable("Faculties");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Order", b =>
@@ -117,7 +120,7 @@ namespace DemoMVC.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.OrderDetail", b =>
@@ -144,7 +147,7 @@ namespace DemoMVC.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetails", (string)null);
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Product", b =>
@@ -166,7 +169,7 @@ namespace DemoMVC.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Student", b =>
@@ -186,7 +189,7 @@ namespace DemoMVC.Migrations
 
                     b.HasIndex("FacultyId");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Order", b =>
