@@ -84,7 +84,8 @@ Học phần Phát triển phần mềm quản lý
     - Cài đặt package hỗ trợ làm việc với excel, ví dụ Epplus, ClosedXML...
     - Tạo giao diện upload file excel
     - Upload file excel và đọc dữ liệu từ file excel => Lưu vào CSDL
-12. Bài thực hành
+12. Buổi học số 13: Xây dựng chức năng CRUD với Ajax
+13. Bài thực hành
     - Bài thực hành Buổi 1:
         + Bài thực hành số 1: Cài đặt môi trường, Tạo repository trên github, chèn link github vào link thông tin môn học (Sheet DanhSachLop), deadline: 08/01/2026
         + Bài thực hành số 2: Làm bài thực hành phần HTML (https://www.w3schools.com/html/default.asp) hết phần Form, deadline: 13/01/2026
@@ -107,4 +108,4 @@ Học phần Phát triển phần mềm quản lý
         + Quản lý loại thiết bị (CRUD + Tìm kiếm)
         + Quản lý thiết bị (CRUD + Tìm kiếm)
         + Quản lý nhập kho: Quản lý được các phiếu nhập kho, một phiếu nhập có thông tin nhiều thiết bị (đơn giá nhập, số lượng, thành tiền...)
-        + Quản lý Xuất kho: uản lý được các phiếu xuất kho, một phiếu xuất có thông tin nhiều thiết bị (đơn giá xuất, số lượng, thành tiền...)
+        + Quản lý Xuất kho: Quản lý được các phiếu xuất kho, một phiếu xuất có thông tin nhiều thiết bị (đơn giá xuất, số lượng, thành tiền...)
