@@ -4,472 +4,73 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>
-        @ViewData["Title"] - .NET Core MVC Learning
+        @ViewData["Title"] PTPMQL
     </title>
-
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 
 <body>
-
     <!-- =====================================================
          NAVBAR
     ====================================================== -->
-
     <header>
         <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-
             <div class="container-fluid px-lg-4">
-
                 <!-- Logo -->
-
                 <a class="navbar-brand d-flex align-items-center gap-2" asp-controller="Home" asp-action="Index">
-
                     <span class="brand-icon">
                         <i class="bi bi-code-square"></i>
                     </span>
-
                     <span>
                         <strong>.NET</strong>
                         <span class="text-primary">MVC</span>
-
                         <small class="d-block text-secondary">
-                            Learning
+                            Phát triển Phần mềm Quản lý
                         </small>
                     </span>
-
                 </a>
-
-
                 <!-- Mobile toggle -->
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
                         aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-
                     <span class="navbar-toggler-icon"></span>
-
                 </button>
-
-
                 <!-- Navigation -->
-
-                <div class="collapse navbar-collapse" id="mainNavbar">
-
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-
-                        <!-- Trang chủ -->
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">
-
-                                <i class="bi bi-house me-1"></i>
-
-                                Trang chủ
-
-                            </a>
-
-                        </li>
-
-
-                        <!-- Bài học -->
-
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-
-                                <i class="bi bi-book me-1"></i>
-
-                                Bài học
-
-                            </a>
-
-
-                            <div class="dropdown-menu learning-menu shadow">
-
-                                <div class="row g-0">
-
-                                    <!-- Column 1 -->
-
-                                    <div class="col-lg-3">
-
-                                        <div class="learning-menu-column">
-
-                                            <h6>
-                                                <i class="bi bi-layers me-2"></i>
-                                                ASP.NET Core
-                                            </h6>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="1">
-
-                                                ASP.NET Core là gì?
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="2">
-
-                                                Cấu trúc Project
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="3">
-
-                                                Program.cs
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="4">
-
-                                                Middleware
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="5">
-
-                                                Dependency Injection
-
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Column 2 -->
-
-                                    <div class="col-lg-3">
-
-                                        <div class="learning-menu-column">
-
-                                            <h6>
-                                                <i class="bi bi-diagram-3 me-2"></i>
-                                                MVC
-                                            </h6>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="6">
-
-                                                MVC Pattern
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="7">
-
-                                                Controller
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="8">
-
-                                                Action
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="9">
-
-                                                View
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="10">
-
-                                                Model
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="11">
-
-                                                Routing
-
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Column 3 -->
-
-                                    <div class="col-lg-3">
-
-                                        <div class="learning-menu-column">
-
-                                            <h6>
-                                                <i class="bi bi-database me-2"></i>
-                                                Entity Framework Core
-                                            </h6>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="12">
-
-                                                EF Core
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="13">
-
-                                                DbContext
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="14">
-
-                                                Migration
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="15">
-
-                                                LINQ
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="16">
-
-                                                CRUD
-
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Column 4 -->
-
-                                    <div class="col-lg-3">
-
-                                        <div class="learning-menu-column">
-
-                                            <h6>
-                                                <i class="bi bi-shield-check me-2"></i>
-                                                Authentication
-                                            </h6>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="17">
-
-                                                Authentication
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="18">
-
-                                                ASP.NET Core Identity
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="19">
-
-                                                Login / Register
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="20">
-
-                                                Role
-
-                                            </a>
-
-                                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="21">
-
-                                                Authorization
-
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                                <!-- Footer menu -->
-
-                                <div class="learning-menu-footer">
-
-                                    <a asp-controller="Lessons" asp-action="Index" class="btn btn-primary">
-
-                                        Xem tất cả bài học
-
-                                        <i class="bi bi-arrow-right ms-1"></i>
-
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </li>
-
-
-                        <!-- Lộ trình -->
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" asp-controller="Lessons" asp-action="Index">
-
-                                <i class="bi bi-signpost-2 me-1"></i>
-
-                                Lộ trình học
-
-                            </a>
-
-                        </li>
-
-
-                        <!-- Tài liệu -->
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#">
-
-                                <i class="bi bi-file-earmark-text me-1"></i>
-
-                                Tài liệu
-
-                            </a>
-
-                        </li>
-
-
-                        <!-- Giới thiệu -->
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#">
-
-                                Giới thiệu
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-
-                    <!-- Search -->
-
-                    <form class="d-flex me-lg-3 mb-3 mb-lg-0" role="search">
-
-                        <div class="input-group">
-
-                            <span class="input-group-text bg-white">
-
-                                <i class="bi bi-search"></i>
-
-                            </span>
-
-                            <input class="form-control" type="search" placeholder="Tìm bài học..." />
-
-                        </div>
-
-                    </form>
-
-
-                    <!-- Login -->
-
-                    <a href="#" class="btn btn-primary">
-
-                        <i class="bi bi-box-arrow-in-right me-1"></i>
-
-                        Đăng nhập
-
-                    </a>
-
-                </div>
-
+                <partial name="_Navigation" />
             </div>
-
         </nav>
     </header>
-
-
     <!-- =====================================================
          MAIN CONTENT
     ====================================================== -->
-
     <main>
-
         @RenderBody()
-
     </main>
-
-
     <!-- =====================================================
          FOOTER
     ====================================================== -->
-
     <footer class="border-top bg-white mt-5">
-
         <div class="container py-4">
-
             <div class="row">
-
                 <div class="col-md-6">
-
                     <strong>
-                        .NET MVC Learning
+                        Phát triển phần mềm quản lý (7080638) - 2026
                     </strong>
-
-                    <p class="text-secondary mb-0 mt-2">
-
-                        Học ASP.NET Core MVC từ cơ bản
-                        đến xây dựng ứng dụng thực tế.
-
-                    </p>
-
                 </div>
-
-
-                <div class="col-md-6 text-md-end mt-3 mt-md-0">
-
-                    <a href="#" class="text-secondary me-3">
-
-                        Bài học
-
-                    </a>
-
-                    <a href="#" class="text-secondary me-3">
-
-                        Lộ trình
-
-                    </a>
-
-                    <a href="#" class="text-secondary">
-
-                        Giới thiệu
-
-                    </a>
-
-                </div>
-
             </div>
-
         </div>
-
     </footer>
-
-
     <!-- Bootstrap JS -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
     </script>
-
-
     <script src="~/js/site.js" asp-append-version="true">
     </script>
-
-
     @await RenderSectionAsync("Scripts", required: false)
-
 </body>
 
 </html>

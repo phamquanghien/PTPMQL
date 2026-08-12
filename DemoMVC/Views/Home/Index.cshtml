@@ -1,8 +1,90 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="bg-primary text-white py-5">
+    <div class="container py-lg-5">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <span class="badge bg-white text-primary mb-3">
+                    ASP.NET Core MVC
+                </span>
+                <h1 class="display-6 fw-bold">
+                    PHÁT TRIỂN PHẦN MỀM QUẢN LÝ
+                </h1>
+                <p class="lead mt-3 opacity-75">
+                    GIẢNG VIÊN: PHẠM QUANG HIỂN
+                </p>
+                <p class="lead mt-3 opacity-75">
+                    BỘ MÔN: TIN HỌC KINH TẾ
+                </p>
+                <a asp-controller="Lessons" asp-action="Index" class="btn btn-light btn-lg mt-3">
+                    Bắt đầu học
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">
+                Lộ trình học
+            </h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <i class="bi bi-1-circle-fill text-primary fs-2"></i>
+                        <h5 class="fw-bold mt-3">
+                            Overview
+                        </h5>
+                        <p class="text-secondary">
+                            Giới thiệu học phần, cài đặt và thiết lập môi trường lập trình.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <i class="bi bi-2-circle-fill text-primary fs-2"></i>
+                        <h5 class="fw-bold mt-3">
+                            MVC
+                        </h5>
+                        <p class="text-secondary">
+                            Hiểu Model, View, Controller và Routing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <i class="bi bi-3-circle-fill text-primary fs-2"></i>
+                        <h5 class="fw-bold mt-3">
+                            Database
+                        </h5>
+                        <p class="text-secondary">
+                            Làm việc với Database và CRUD.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <i class="bi bi-4-circle-fill text-primary fs-2"></i>
+                        <h5 class="fw-bold mt-3">
+                            Authentication
+                        </h5>
+                        <p class="text-secondary">
+                            Xác thực và phân quyền người dùng với ASP.NET Core Identity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

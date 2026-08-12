@@ -1,0 +1,46 @@
+@model DemoMVC.Models.Lesson
+@{
+    ViewData["Title"] = Model.Title;
+    var contentView = $"Contents/Lesson{Model.Id:D2}";
+}
+<div class="container py-4">
+    <div class="row g-4">
+        <!-- ==========================================
+             MAIN CONTENT
+        =========================================== -->
+        <div class="col-lg-8">
+            <article class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-lg-5">
+                    <!-- Lesson header -->
+                    <div class="mb-4">
+                        <span class="badge text-bg-primary mb-2">
+                            @Model.ChapterTitle
+                        </span>
+                        <h1 class="fw-bold mb-2">
+                            @Model.Title
+                        </h1>
+                        <div class="text-secondary small">
+                            Bài @Model.Id
+                            <span class="mx-2">•</span>
+                            @Model.Level
+                        </div>
+                    </div>
+                    <hr />
+                    <!-- Lesson content -->
+                    <div class="lesson-content">
+                        <partial name="@contentView" />
+                    </div>
+                    <!-- Navigation -->
+                    <hr class="my-5" />
+                    <partial name="Partials/_LessonNavigation" model="Model" />
+                </div>
+            </article>
+        </div>
+        <!-- ==========================================
+             SIDEBAR
+        =========================================== -->
+        <div class="col-lg-4">
+            <partial name="Partials/_LessonSidebar" model="Model" />
+        </div>
+    </div>
+</div>

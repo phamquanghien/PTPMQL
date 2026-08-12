@@ -1,0 +1,48 @@
+@model DemoMVC.Models.Lesson
+@using DemoMVC.Data
+@{
+    var previousLesson = LearningData.Lessons
+        .Where(x => x.Id < Model.Id)
+        .OrderByDescending(x => x.Id)
+        .FirstOrDefault();
+    var nextLesson = LearningData.Lessons
+        .Where(x => x.Id > Model.Id)
+        .OrderBy(x => x.Id)
+        .FirstOrDefault();
+}
+<div class="lesson-navigation mt-4">
+    <div class="row g-3">
+        <!-- Previous lesson -->
+        <div class="col-12 col-md-6">
+            @if (previousLesson != null)
+            {
+                <a asp-controller="Lessons" asp-action="Detail" asp-route-id="@previousLesson.Id"
+                   class="btn btn-outline-secondary w-100 text-start p-3">
+                    <div class="small text-secondary mb-1">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Bài trước
+                    </div>
+                    <div class="fw-semibold text-dark">
+                        @previousLesson.Title
+                    </div>
+                </a>
+            }
+        </div>
+        <!-- Next lesson -->
+        <div class="col-12 col-md-6">
+            @if (nextLesson != null)
+            {
+                <a asp-controller="Lessons" asp-action="Detail" asp-route-id="@nextLesson.Id"
+                   class="btn btn-primary w-100 text-end p-3">
+                    <div class="small mb-1">
+                        Bài tiếp theo
+                        <i class="bi bi-arrow-right ms-1"></i>
+                    </div>
+                    <div class="fw-semibold">
+                        @nextLesson.Title
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

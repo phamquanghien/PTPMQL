@@ -1,0 +1,142 @@
+<div class="collapse navbar-collapse" id="mainNavbar">
+    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <!-- Trang chủ -->
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-house me-1"></i>
+                Trang chủ
+            </a>
+        </li>
+        <!-- Bài học -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-book me-1"></i>
+                Bài học
+            </a>
+            <div class="dropdown-menu learning-menu shadow">
+                <div class="row g-0">
+                    <!-- Column 1 -->
+                    <div class="col-lg-3">
+                        <div class="learning-menu-column">
+                            <h6>
+                                <i class="bi bi-layers me-2"></i>
+                                Overview
+                            </h6>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="1">
+                                Hình thức học tập và thi kết thúc học phần
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="2">
+                                Công nghệ sử dụng
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="3">
+                                Cài đặt và thiết lập môi trường lập trình
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="4">
+                                Thiết lập quy trình CICD
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="col-lg-3">
+                        <div class="learning-menu-column">
+                            <h6>
+                                <i class="bi bi-diagram-3 me-2"></i>
+                                .Net MVC
+                            </h6>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="5">
+                                MVC Pattern
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="6">
+                                Routing
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="7">
+                                Controller, Model, View
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="8">
+                                Quản lý trạng thái
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="9">
+                                Layout, Partial View, View Component
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="col-lg-3">
+                        <div class="learning-menu-column">
+                            <h6>
+                                <i class="bi bi-database me-2"></i>
+                                Database
+                            </h6>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="10">
+                                Thiết lập kết nối CSDL
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="11">
+                                Migration
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="12">
+                                CRUD
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="13">
+                                LINQ
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="14">
+                                AJAX CRUD
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="15">
+                                PAGINATION
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="16">
+                                EXCEL
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Column 4 -->
+                    <div class="col-lg-3">
+                        <div class="learning-menu-column">
+                            <h6>
+                                <i class="bi bi-shield-check me-2"></i>
+                                Authentication
+                            </h6>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="17">
+                                Login / Register
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="18">
+                                ASP.NET Core Identity
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="19">
+                                Authentication
+                            </a>
+                            <a asp-controller="Lessons" asp-action="Detail" asp-route-id="20">
+                                Authorization
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer menu -->
+                <div class="learning-menu-footer">
+                    <a asp-controller="Lessons" asp-action="Index" class="btn btn-primary">
+                        Xem tất cả bài học
+                        <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <!-- Tài liệu -->
+        <li class="nav-item">
+            <a class="nav-link" target="_blank"
+               href="https://drive.google.com/drive/folders/1HQXd0UEd4v293ILj8vrp7ziWy4oBmM7E?usp=sharing">
+                <i class="bi bi-file-earmark-text me-1"></i>
+                Tài liệu
+            </a>
+        </li>
+    </ul>
+    <!-- Search -->
+    <form class="d-flex me-lg-3 mb-3 mb-lg-0" role="search">
+        <div class="input-group">
+            <span class="input-group-text bg-white">
+                <i class="bi bi-search"></i>
+            </span>
+            <input class="form-control" type="search" placeholder="Tìm bài học..." />
+        </div>
+    </form>
+</div>
