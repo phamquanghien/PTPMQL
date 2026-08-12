@@ -1,31 +1,191 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 body {
-  margin-bottom: 60px;
+    color: #172033;
+    background-color: #f8f9fc;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background-color: #eaf2ff;
+    color: #0d6efd;
+
+    font-size: 22px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    min-height: 72px;
+}
+
+.navbar-brand {
+    line-height: 1.1;
+}
+
+.navbar-brand small {
+    font-size: 10px;
+    letter-spacing: 0.3px;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.75rem 0.9rem;
+
+    color: #374151;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #0d6efd;
+}
+
+
+/* =========================================================
+   LEARNING MEGA MENU
+========================================================= */
+
+.learning-menu {
+    width: min(950px, calc(100vw - 40px));
+
+    padding: 0;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 0 0 12px 12px;
+
+    overflow: hidden;
+}
+
+.learning-menu-column {
+    height: 100%;
+
+    padding: 24px;
+
+    border-right: 1px solid #edf0f4;
+}
+
+.learning-menu-column h6 {
+    margin-bottom: 14px;
+
+    color: #0d6efd;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.learning-menu-column a {
+    display: block;
+
+    padding: 6px 0;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    transition:
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.learning-menu-column a:hover {
+    color: #0d6efd;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   MENU FOOTER
+========================================================= */
+
+.learning-menu-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 14px 20px;
+
+    background-color: #f8faff;
+
+    border-top: 1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.input-group-text {
+    border-right: 0;
+}
+
+.input-group .form-control {
+    border-left: 0;
+}
+
+.input-group .form-control:focus {
+    border-left: 0;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .navbar-nav {
+        padding-top: 12px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 8px;
+    }
+
+    .learning-menu {
+        width: 100%;
+
+        border: 0;
+        border-radius: 0;
+
+        box-shadow: none !important;
+    }
+
+    .learning-menu-column {
+        padding: 16px 8px;
+
+        border-right: 0;
+        border-bottom: 1px solid #edf0f4;
+    }
+
+    .learning-menu-footer {
+        justify-content: stretch;
+    }
+
+    .learning-menu-footer .btn {
+        width: 100%;
+    }
+
 }
