@@ -1,0 +1,996 @@
+@{
+    ViewData["Title"] = "Thiết lập quy trình CI/CD";
+}
+<div class="lesson-content">
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+    <div class="mb-5">
+        <p class="lead">
+            CI/CD là quy trình tự động hóa việc kiểm tra, xây dựng
+            và triển khai phần mềm.
+        </p>
+        <p>
+            Trong bài học này, chúng ta sẽ xây dựng một quy trình
+            CI/CD đơn giản cho ứng dụng <strong>ASP.NET Core MVC</strong>.
+            Mã nguồn được lưu trữ trên <strong>GitHub</strong>,
+            GitHub Actions thực hiện quá trình build và deploy,
+            còn ứng dụng được triển khai lên
+            <strong>MonsterASP.NET</strong>.
+        </p>
+        <div class="alert alert-info border-0 mt-4">
+            <div class="d-flex">
+                <i class="bi bi-info-circle-fill me-2 mt-1"></i>
+                <div>
+                    <strong>Mục tiêu:</strong>
+                    <span>
+                        Sau bài học, sinh viên có thể tạo một ứng dụng
+                        ASP.NET Core MVC, đưa mã nguồn lên GitHub,
+                        cấu hình GitHub Actions và tự động triển khai
+                        ứng dụng lên hosting.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =====================================================
+         01. CI/CD LÀ GÌ?
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                01.
+            </span>
+            Tổng quan về CI/CD
+        </h2>
+        <h3 class="h5 fw-bold mt-4">
+            1.1. CI là gì?
+        </h3>
+        <p>
+            <strong>CI - Continuous Integration</strong>
+            (Tích hợp liên tục) là quá trình tự động kiểm tra
+            và tích hợp mã nguồn mỗi khi developer thay đổi
+            và đẩy code lên repository.
+        </p>
+        <p>
+            Một quy trình CI cơ bản có thể bao gồm:
+        </p>
+        <ul>
+            <li>
+                Developer thay đổi mã nguồn.
+            </li>
+            <li>
+                Commit mã nguồn.
+            </li>
+            <li>
+                Push mã nguồn lên GitHub.
+            </li>
+            <li>
+                GitHub Actions được kích hoạt.
+            </li>
+            <li>
+                Restore dependencies.
+            </li>
+            <li>
+                Build project.
+            </li>
+            <li>
+                Chạy automated tests nếu có.
+            </li>
+        </ul>
+        <h3 class="h5 fw-bold mt-4">
+            1.2. CD là gì?
+        </h3>
+        <p>
+            <strong>CD - Continuous Delivery / Continuous Deployment</strong>
+            là quá trình tự động đưa phiên bản phần mềm đã được kiểm tra
+            lên môi trường triển khai.
+        </p>
+        <p>
+            Trong bài học này, chúng ta sử dụng GitHub Actions để
+            tự động deploy ứng dụng ASP.NET Core MVC lên MonsterASP.
+        </p>
+        <h3 class="h5 fw-bold mt-4">
+            1.3. Quy trình CI/CD trong bài học
+        </h3>
+        <div class="card border-0 bg-light my-4">
+            <div class="card-body p-4">
+                <div class="text-center">
+                    <div class="fw-bold fs-5">
+                        Visual Studio Code
+                    </div>
+                    <small class="text-secondary">
+                        Phát triển ứng dụng
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5">
+                        Git
+                    </div>
+                    <small class="text-secondary">
+                        Commit & Push
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5">
+                        GitHub
+                    </div>
+                    <small class="text-secondary">
+                        Source Code Repository
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5 text-primary">
+                        GitHub Actions
+                    </div>
+                    <small class="text-secondary">
+                        Build & Deploy
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5">
+                        MonsterASP
+                    </div>
+                    <small class="text-secondary">
+                        Production Website
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         02. ĐĂNG KÝ MONSTERASP
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                02.
+            </span>
+            Đăng ký tài khoản MonsterASP
+        </h2>
+        <p>
+            <strong>MonsterASP.NET</strong> là dịch vụ hosting hỗ trợ
+            triển khai các ứng dụng ASP.NET.
+        </p>
+        <p>
+            Trong bài học này, MonsterASP được sử dụng làm môi trường
+            hosting để triển khai ứng dụng ASP.NET Core MVC.
+        </p>
+        <div class="card border-0 bg-light my-4">
+            <div class="card-body">
+                <h3 class="h6 fw-bold">
+                    Bước 1. Truy cập MonsterASP
+                </h3>
+                <p>
+                    Truy cập website:
+                </p>
+                <a href="https://www.monsterasp.net/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>
+                    MonsterASP.NET
+                </a>
+            </div>
+        </div>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 2. Đăng ký tài khoản
+        </h3>
+        <p>
+            Thực hiện đăng ký tài khoản theo hướng dẫn trên website.
+        </p>
+        <ul>
+            <li>
+                Sử dụng email đang hoạt động.
+            </li>
+            <li>
+                Xác nhận email nếu hệ thống yêu cầu.
+            </li>
+            <li>
+                Đăng nhập vào hệ thống quản trị hosting.
+            </li>
+        </ul>
+        <div class="alert alert-warning border-0 mt-4">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <strong>Lưu ý:</strong>
+            Không đưa mật khẩu tài khoản MonsterASP vào
+            mã nguồn GitHub.
+        </div>
+    </section>
+    <!-- =====================================================
+         03. TẠO WEBSITE
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                03.
+            </span>
+            Tạo website trên MonsterASP
+        </h2>
+        <p>
+            Sau khi đăng nhập MonsterASP, tạo một website mới
+            để sử dụng làm môi trường triển khai ứng dụng.
+        </p>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 1. Tạo website
+        </h3>
+        <p>
+            Trong trang quản trị, tìm chức năng tạo website mới
+            và thực hiện theo các bước mà MonsterASP cung cấp.
+        </p>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 2. Lưu thông tin triển khai
+        </h3>
+        <p>
+            Sau khi website được tạo, cần lưu lại các thông tin
+            cần thiết cho quá trình deploy.
+        </p>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            Thông tin
+                        </th>
+                        <th>
+                            Mục đích
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Website URL
+                        </td>
+                        <td>
+                            Địa chỉ truy cập ứng dụng sau khi deploy.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            FTP Host
+                        </td>
+                        <td>
+                            Địa chỉ máy chủ FTP dùng để upload file.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            FTP Username
+                        </td>
+                        <td>
+                            Tài khoản dùng để kết nối FTP.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            FTP Password
+                        </td>
+                        <td>
+                            Mật khẩu FTP.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            FTP Directory
+                        </td>
+                        <td>
+                            Thư mục chứa mã nguồn website.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert alert-danger border-0 mt-4">
+            <i class="bi bi-shield-lock-fill me-2"></i>
+            <strong>Bảo mật:</strong>
+            Không commit FTP username và password trực tiếp
+            vào file <code>deploy.yml</code>.
+            Các thông tin này phải được lưu trong
+            <strong>GitHub Secrets</strong>.
+        </div>
+    </section>
+    <!-- =====================================================
+         04. TẠO PROJECT ASP.NET CORE MVC
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                04.
+            </span>
+            Tạo dự án ASP.NET Core MVC
+        </h2>
+        <p>
+            Tiếp theo, tạo một project ASP.NET Core MVC để thực hiện
+            quy trình CI/CD.
+        </p>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 1. Tạo project
+        </h3>
+        <p>
+            Mở Terminal và thực hiện:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>dotnet new mvc -n DemoMVC
+cd DemoMVC</code></pre>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 2. Chạy thử ứng dụng
+        </h3>
+        <pre class="bg-dark text-light rounded p-3"><code>dotnet run</code></pre>
+        <p>
+            Mở trình duyệt và truy cập địa chỉ được hiển thị
+            trong Terminal để kiểm tra ứng dụng.
+        </p>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 3. Khởi tạo Git
+        </h3>
+        <pre class="bg-dark text-light rounded p-3"><code>git init
+git add .
+git commit -m "Initial ASP.NET Core MVC project"</code></pre>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 4. Tạo repository trên GitHub
+        </h3>
+        <p>
+            Tạo một repository mới trên GitHub, sau đó kết nối
+            project local với repository.
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>git remote add origin https://github.com/USERNAME/DemoMVC.git
+git branch -M main
+git push -u origin main</code></pre>
+    </section>
+    <!-- =====================================================
+         05. GITHUB WORKFLOW
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                05.
+            </span>
+            Tạo GitHub Actions Workflow
+        </h2>
+        <p>
+            GitHub Actions sử dụng các file workflow nằm trong thư mục:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>.github/workflows/</code></pre>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 1. Tạo thư mục
+        </h3>
+        <p>
+            Tại thư mục gốc của project:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>mkdir -p .github/workflows</code></pre>
+        <p>
+            Sau đó tạo file:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>.github/workflows/deploy.yml</code></pre>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 2. Nội dung deploy.yml
+        </h3>
+        <p>
+            Workflow dưới đây thực hiện các bước cơ bản:
+        </p>
+        <ul>
+            <li>
+                Trigger khi push code lên branch <code>main</code>.
+            </li>
+            <li>
+                Checkout source code.
+            </li>
+            <li>
+                Cài đặt .NET.
+            </li>
+            <li>
+                Restore dependencies.
+            </li>
+            <li>
+                Build project.
+            </li>
+            <li>
+                Publish project.
+            </li>
+            <li>
+                Deploy các file publish lên hosting.
+            </li>
+        </ul>
+        <pre class="bg-dark text-light rounded p-3"><code>name: Deploy ASP.NET Core MVC
+
+name: Deploy .NET 10 MVC to MonsterASP.net
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 1. Cài đặt .NET 10 SDK
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      # 2. Đóng gói ứng dụng
+      - name: Publish project
+        run: dotnet publish **/*.csproj -c Release -o ./publish
+
+      # 3. TẮT SERVER: Tạo và upload app_offline.htm bằng curl (Không làm hỏng file sync state)
+      - name: ⛔ Stop Server (Upload app_offline.htm)
+        run: |
+          echo "&lt;html&gt;&lt;body&gt;&lt;h1&gt;Updating...&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;" > app_offline.htm
+          curl -s --ftp-pasv -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" -T app_offline.htm "ftp://${{ secrets.FTP_SERVER }}/wwwroot/app_offline.htm"
+
+      # 4. DEPLOY CODE: Chỉ gọi FTP Action 1 lần duy nhất ở đây
+      - name: 🚀 Deploy App
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./publish/
+          server-dir: /wwwroot/
+          security: loose
+          exclude: |
+            **/app_offline.htm
+
+      # 5. BẬT SERVER: Xóa file app_offline.htm bằng curl
+      - name: ▶️ Start Server (Delete app_offline.htm)
+        if: always()
+        run: |
+          curl -s --ftp-pasv -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/" -Q "-DELE /wwwroot/app_offline.htm" || true
+</code></pre>
+        <div class="alert alert-info border-0 mt-4">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <strong>Giải thích:</strong>
+            File <code>deploy.yml</code> chính là "kịch bản"
+            mô tả GitHub Actions phải thực hiện những công việc
+            nào khi mã nguồn được push lên GitHub.
+        </div>
+    </section>
+    <!-- =====================================================
+         06. GITHUB SECRETS
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                06.
+            </span>
+            Cấu hình GitHub Secrets
+        </h2>
+        <p>
+            Workflow cần thông tin FTP để có thể kết nối tới
+            MonsterASP. Tuy nhiên, không được lưu trực tiếp
+            các thông tin nhạy cảm trong source code.
+        </p>
+        <p>
+            GitHub cung cấp chức năng
+            <strong>Repository Secrets</strong> để lưu các
+            thông tin này.
+        </p>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 1. Mở Settings của Repository
+        </h3>
+        <p>
+            Trong GitHub Repository:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>Settings
+    ↓
+Secrets and variables
+    ↓
+Actions
+    ↓
+New repository secret</code></pre>
+        <h3 class="h5 fw-bold mt-4">
+            Bước 2. Tạo các Secrets
+        </h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            Secret
+                        </th>
+                        <th>
+                            Giá trị
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <code>FTP_SERVER</code>
+                        </td>
+                        <td>
+                            FTP Host của MonsterASP
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>FTP_USERNAME</code>
+                        </td>
+                        <td>
+                            FTP Username
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>FTP_PASSWORD</code>
+                        </td>
+                        <td>
+                            FTP Password
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>FTP_SERVER_DIR</code>
+                        </td>
+                        <td>
+                            Thư mục deploy trên hosting
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert alert-danger border-0 mt-4">
+            <i class="bi bi-shield-exclamation me-2"></i>
+            <strong>Không làm như sau:</strong>
+            <pre class="bg-dark text-light rounded p-3 mt-3 mb-0"><code>server: ftp.example.com
+username: myusername
+password: mypassword</code></pre>
+            <p class="mb-0 mt-3">
+                Không lưu trực tiếp thông tin xác thực trong
+                <code>deploy.yml</code>.
+            </p>
+        </div>
+    </section>
+    <!-- =====================================================
+         07. PUSH WORKFLOW
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                07.
+            </span>
+            Push Workflow lên GitHub
+        </h2>
+        <p>
+            Sau khi hoàn thành file <code>deploy.yml</code>,
+            commit và push file workflow lên GitHub.
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>git add .github/workflows/deploy.yml
+git commit -m "Add CI/CD workflow"
+git push origin main</code></pre>
+        <p class="mt-3">
+            Khi push thành công, GitHub sẽ tự động phát hiện
+            workflow và bắt đầu thực hiện quy trình CI/CD.
+        </p>
+    </section>
+    <!-- =====================================================
+         08. THEO DÕI GITHUB ACTIONS
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                08.
+            </span>
+            Theo dõi GitHub Actions
+        </h2>
+        <p>
+            Trong GitHub Repository, chọn:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>Actions</code></pre>
+        <p>
+            Tại đây có thể xem các workflow đã chạy.
+        </p>
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            Step
+                        </th>
+                        <th>
+                            Công việc
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Checkout
+                        </td>
+                        <td>
+                            Tải source code từ repository.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Setup .NET
+                        </td>
+                        <td>
+                            Cài đặt .NET SDK trên GitHub Runner.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Restore
+                        </td>
+                        <td>
+                            Khôi phục các dependency.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Build
+                        </td>
+                        <td>
+                            Biên dịch project.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Publish
+                        </td>
+                        <td>
+                            Tạo phiên bản publish để triển khai.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Deploy
+                        </td>
+                        <td>
+                            Upload các file publish lên MonsterASP.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert alert-success border-0 mt-4">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            Nếu tất cả các step đều hiển thị dấu
+            <strong>Success</strong>, quy trình CI/CD đã hoàn thành.
+        </div>
+    </section>
+    <!-- =====================================================
+         09. KIỂM TRA WEBSITE
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                09.
+            </span>
+            Kiểm tra website sau khi Deploy
+        </h2>
+        <p>
+            Sau khi GitHub Actions hoàn thành, truy cập URL website
+            được cung cấp bởi MonsterASP.
+        </p>
+        <div class="card border-0 bg-light my-4">
+            <div class="card-body text-center">
+                <i class="bi bi-globe2 text-primary fs-1"></i>
+                <h3 class="h5 fw-bold mt-3">
+                    Production Website
+                </h3>
+                <p class="text-secondary">
+                    Website được triển khai từ source code
+                    trên GitHub.
+                </p>
+            </div>
+        </div>
+        <p>
+            Kiểm tra:
+        </p>
+        <ul>
+            <li>
+                Website có thể truy cập được.
+            </li>
+            <li>
+                Trang Home hiển thị chính xác.
+            </li>
+            <li>
+                CSS và JavaScript hoạt động.
+            </li>
+            <li>
+                Routing hoạt động.
+            </li>
+            <li>
+                Không xuất hiện lỗi HTTP 500.
+            </li>
+        </ul>
+    </section>
+    <!-- =====================================================
+         10. KIỂM TRA CI/CD
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                10.
+            </span>
+            Kiểm tra tính tự động của CI/CD
+        </h2>
+        <p>
+            Để kiểm tra quy trình CI/CD, thay đổi một nội dung
+            trong project.
+        </p>
+        <p>
+            Ví dụ thay đổi nội dung trong:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>Views/Home/Index.cshtml</code></pre>
+        <p>
+            Sau đó commit và push:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>git add .
+git commit -m "Update home page"
+git push origin main</code></pre>
+        <p>
+            GitHub Actions sẽ tự động:
+        </p>
+        <div class="card border-0 bg-light">
+            <div class="card-body">
+                <div class="d-flex align-items-center flex-wrap gap-2">
+                    <span class="badge text-bg-dark">
+                        git push
+                    </span>
+                    <i class="bi bi-arrow-right"></i>
+                    <span class="badge text-bg-primary">
+                        GitHub Actions
+                    </span>
+                    <i class="bi bi-arrow-right"></i>
+                    <span class="badge text-bg-secondary">
+                        Build
+                    </span>
+                    <i class="bi bi-arrow-right"></i>
+                    <span class="badge text-bg-secondary">
+                        Publish
+                    </span>
+                    <i class="bi bi-arrow-right"></i>
+                    <span class="badge text-bg-success">
+                        Deploy
+                    </span>
+                </div>
+            </div>
+        </div>
+        <p class="mt-4">
+            Sau khi workflow hoàn thành, refresh website và kiểm tra
+            thay đổi đã được cập nhật.
+        </p>
+    </section>
+    <!-- =====================================================
+         11. CẤU TRÚC PROJECT
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                11.
+            </span>
+            Cấu trúc project sau khi thiết lập CI/CD
+        </h2>
+        <pre class="bg-dark text-light rounded p-3"><code>DemoMVC/
+│
+├── Controllers/
+│
+├── Models/
+│
+├── Views/
+│
+├── wwwroot/
+│
+├── Properties/
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+│
+├── Program.cs
+│
+├── DemoMVC.csproj
+│
+└── README.md</code></pre>
+        <p class="mt-3">
+            Điểm quan trọng là file:
+        </p>
+        <pre class="bg-dark text-light rounded p-3"><code>.github/workflows/deploy.yml</code></pre>
+        <p>
+            được lưu cùng repository và được GitHub sử dụng
+            để thực hiện quy trình CI/CD.
+        </p>
+    </section>
+    <!-- =====================================================
+         12. QUY TRÌNH HOÀN CHỈNH
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                12.
+            </span>
+            Quy trình CI/CD hoàn chỉnh
+        </h2>
+        <p>
+            Toàn bộ quy trình của bài học có thể được tóm tắt như sau:
+        </p>
+        <div class="card border-0 bg-light">
+            <div class="card-body p-4">
+                <div class="text-center">
+                    <div class="fw-bold">
+                        1. Developer
+                    </div>
+                    <small class="text-secondary">
+                        Viết code
+                    </small>
+                    <div class="my-2">
+                        ↓
+                    </div>
+                    <div class="fw-bold">
+                        2. Git
+                    </div>
+                    <small class="text-secondary">
+                        Commit
+                    </small>
+                    <div class="my-2">
+                        ↓
+                    </div>
+                    <div class="fw-bold">
+                        3. GitHub
+                    </div>
+                    <small class="text-secondary">
+                        Push source code
+                    </small>
+                    <div class="my-2">
+                        ↓
+                    </div>
+                    <div class="fw-bold text-primary">
+                        4. GitHub Actions
+                    </div>
+                    <small class="text-secondary">
+                        Restore → Build → Publish
+                    </small>
+                    <div class="my-2">
+                        ↓
+                    </div>
+                    <div class="fw-bold">
+                        5. MonsterASP
+                    </div>
+                    <small class="text-secondary">
+                        Deploy
+                    </small>
+                    <div class="my-2">
+                        ↓
+                    </div>
+                    <div class="fw-bold text-success">
+                        6. Production Website
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         13. KẾT QUẢ CẦN ĐẠT
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">
+                13.
+            </span>
+            Kết quả cần đạt được
+        </h2>
+        <div class="list-group">
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Đăng ký và thiết lập website trên MonsterASP.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Tạo project ASP.NET Core MVC.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Đưa source code lên GitHub.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Tạo file
+                <code>.github/workflows/deploy.yml</code>.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Cấu hình GitHub Actions.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Sử dụng GitHub Secrets để bảo vệ thông tin
+                xác thực.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Build và publish ứng dụng tự động.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Deploy ứng dụng ASP.NET Core MVC lên MonsterASP.
+            </div>
+            <div class="list-group-item">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Hiểu được quy trình từ
+                <strong>git push</strong> đến
+                <strong>production website</strong>.
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         SUMMARY
+    ====================================================== -->
+    <div class="alert alert-primary border-0 mb-5">
+        <div class="d-flex">
+            <i class="bi bi-lightbulb-fill me-2 mt-1"></i>
+            <div>
+                <strong>Tóm tắt:</strong>
+                <span>
+                    CI/CD giúp tự động hóa quá trình đưa phần mềm
+                    từ môi trường phát triển lên môi trường production.
+                    Trong bài học này, GitHub Actions đóng vai trò
+                    thực hiện Build và Deploy ứng dụng ASP.NET Core MVC
+                    lên MonsterASP mỗi khi có thay đổi được push
+                    lên branch <code>main</code>.
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- =====================================================
+         TÀI LIỆU THAM KHẢO
+    ====================================================== -->
+    <section class="lesson-references">
+        <hr class="my-5">
+        <h2 class="h5 fw-bold mb-3">
+            <i class="bi bi-book me-2 text-primary"></i>
+            Tài liệu tham khảo
+        </h2>
+        <ol class="mb-0">
+            <li class="mb-2">
+                MonsterASP.NET.
+                <a href="https://www.monsterasp.net/" target="_blank" rel="noopener noreferrer">
+                    MonsterASP.NET
+                </a>
+            </li>
+            <li class="mb-2">
+                Microsoft.
+                <a href="https://learn.microsoft.com/en-us/aspnet/core/" target="_blank" rel="noopener noreferrer">
+                    ASP.NET Core Documentation
+                </a>
+            </li>
+            <li class="mb-2">
+                GitHub.
+                <a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer">
+                    GitHub Actions Documentation
+                </a>
+            </li>
+            <li class="mb-2">
+                GitHub.
+                <a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions"
+                   target="_blank" rel="noopener noreferrer">
+                    Using Secrets in GitHub Actions
+                </a>
+            </li>
+            <li class="mb-2">
+                Microsoft.
+                <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish" target="_blank"
+                   rel="noopener noreferrer">
+                    dotnet publish
+                </a>
+            </li>
+            <li class="mb-2">
+                GitHub Marketplace.
+                <a href="https://github.com/marketplace/actions/ftp-deploy" target="_blank" rel="noopener noreferrer">
+                    FTP Deploy Action
+                </a>
+            </li>
+        </ol>
+    </section>
+</div>
