@@ -1,0 +1,25 @@
+.lesson-content {
+    line-height: 1.8;
+}
+.lesson-content p,
+.lesson-content li {
+    text-align: justify;
+}
+.lesson-content .lead {
+    line-height: 1.8;
+}
+.lesson-content h2,
+.lesson-content h3 {
+    text-align: left;
+}
+.lesson-content pre {
+    text-align: left;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+.lesson-content code {
+    text-align: left;
+}
+.lesson-content .table {
+    text-align: left;
+}

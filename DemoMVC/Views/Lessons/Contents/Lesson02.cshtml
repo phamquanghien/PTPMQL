@@ -1,0 +1,645 @@
+<div class="lesson-content text-justify">
+    <!-- =====================================================
+         INTRODUCTION
+    ====================================================== -->
+    <div class="mb-5">
+        <p class="lead">
+            Trong học phần này, chúng ta sử dụng
+            <strong>.NET</strong>, <strong>C#</strong>,
+            <strong>ASP.NET Core MVC</strong> và
+            <strong>Entity Framework Core</strong> để xây dựng
+            các ứng dụng quản lý trên nền tảng web.
+        </p>
+        <p>
+            Bài học này giới thiệu tổng quan các công nghệ chính
+            được sử dụng trong toàn bộ học phần, giúp sinh viên
+            hiểu được vai trò và mối quan hệ giữa .NET, C#,
+            MVC, Code First và Entity Framework Core trước khi
+            bắt đầu xây dựng ứng dụng thực tế.
+        </p>
+    </div>
+    <!-- =====================================================
+         1. .NET
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">01.</span>
+            Giới thiệu về .NET
+        </h2>
+        <p>
+            <strong>.NET</strong> là nền tảng phát triển phần mềm
+            mã nguồn mở do Microsoft phát triển. .NET cung cấp
+            môi trường thực thi, thư viện, công cụ và các thành phần
+            cần thiết để xây dựng và triển khai nhiều loại ứng dụng.
+        </p>
+        <p>
+            Với .NET, lập trình viên có thể phát triển ứng dụng
+            trên nhiều hệ điều hành như Windows, Linux và macOS.
+            Trong phạm vi học phần này, chúng ta tập trung sử dụng
+            .NET để xây dựng ứng dụng web với ASP.NET Core MVC.
+        </p>
+        <!-- .NET versions -->
+        <h3 class="h5 fw-bold mt-4 mb-3">
+            Các phiên bản .NET
+        </h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col" class="text-center">
+                            Phiên bản
+                        </th>
+                        <th scope="col">
+                            Phát hành
+                        </th>
+                        <th scope="col" class="text-center">
+                            Hỗ trợ
+                        </th>
+                        <th scope="col">
+                            Ghi chú
+                        </th>
+                        <th scope="col" class="text-center">
+                            Download
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- .NET 10 -->
+                    <tr>
+                        <td class="text-center fw-semibold">
+                            .NET 10
+                        </td>
+                        <td>
+                            11/2025
+                        </td>
+                        <td class="text-center">
+                            <span class="badge text-bg-success">
+                                LTS
+                            </span>
+                        </td>
+                        <td>
+                            Phiên bản sử dụng trong học phần.
+                        </td>
+                        <td class="text-center">
+                            <a href="https://dotnet.microsoft.com/en-us/download" target="_blank"
+                               rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                                <i class="bi bi-download me-1"></i>
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- .NET 9 -->
+                    <tr>
+                        <td class="text-center fw-semibold">
+                            .NET 9
+                        </td>
+                        <td>
+                            11/2024
+                        </td>
+                        <td class="text-center">
+                            <span class="badge text-bg-secondary">
+                                STS
+                            </span>
+                        </td>
+                        <td>
+                            Phiên bản hỗ trợ ngắn hạn.
+                        </td>
+                        <td class="text-center">
+                            <a href="https://dotnet.microsoft.com/download/dotnet/9.0" target="_blank"
+                               rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-download me-1"></i>
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- .NET 8 -->
+                    <tr>
+                        <td class="text-center fw-semibold">
+                            .NET 8
+                        </td>
+                        <td>
+                            11/2023
+                        </td>
+                        <td class="text-center">
+                            <span class="badge text-bg-success">
+                                LTS
+                            </span>
+                        </td>
+                        <td>
+                            Phiên bản LTS được sử dụng phổ biến.
+                        </td>
+                        <td class="text-center">
+                            <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank"
+                               rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-download me-1"></i>
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- .NET 7 -->
+                    <tr>
+                        <td class="text-center fw-semibold">
+                            .NET 7
+                        </td>
+                        <td>
+                            11/2022
+                        </td>
+                        <td class="text-center">
+                            <span class="badge text-bg-danger">
+                                EOL
+                            </span>
+                        </td>
+                        <td>
+                            Đã hết thời gian hỗ trợ.
+                        </td>
+                        <td class="text-center">
+                            <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank"
+                               rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-download me-1"></i>
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- .NET 6 -->
+                    <tr>
+                        <td class="text-center fw-semibold">
+                            .NET 6
+                        </td>
+                        <td>
+                            11/2021
+                        </td>
+                        <td class="text-center">
+                            <span class="badge text-bg-danger">
+                                EOL
+                            </span>
+                        </td>
+                        <td>
+                            Đã hết thời gian hỗ trợ.
+                        </td>
+                        <td class="text-center">
+                            <a href="https://dotnet.microsoft.com/download/dotnet/6.0" target="_blank"
+                               rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-download me-1"></i>
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert alert-info border-0 mt-3">
+            <div class="d-flex">
+                <i class="bi bi-info-circle-fill me-2 mt-1"></i>
+                <div>
+                    <strong>Lưu ý:</strong>
+                    Trong học phần này, các ví dụ được xây dựng
+                    trên nền tảng <strong>.NET 10</strong>.
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         2. C#
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">02.</span>
+            Giới thiệu về C#
+        </h2>
+        <p>
+            <strong>C#</strong> (C-Sharp) là ngôn ngữ lập trình
+            hiện đại do Microsoft phát triển. C# được thiết kế
+            chủ yếu để phát triển các ứng dụng trên nền tảng .NET.
+        </p>
+        <p>
+            C# hỗ trợ lập trình hướng đối tượng, kiểu dữ liệu mạnh,
+            LINQ, lập trình bất đồng bộ và nhiều tính năng hiện đại
+            khác. Đây là ngôn ngữ chính được sử dụng trong học phần
+            để xây dựng các thành phần của ứng dụng ASP.NET Core MVC.
+        </p>
+        <h3 class="h5 fw-bold mt-4 mb-3">
+            Các loại ứng dụng có thể phát triển với C#
+        </h3>
+        <div class="row g-4">
+            <!-- Web -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 bg-light text-center">
+                    <div class="card-body p-4">
+                        <i class="bi bi-globe2 text-primary fs-1"></i>
+                        <h4 class="h6 fw-bold mt-3">
+                            Web Application
+                        </h4>
+                        <p class="small text-secondary mb-0">
+                            ASP.NET Core MVC, Razor Pages,
+                            Blazor và Web API.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Desktop -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 bg-light text-center">
+                    <div class="card-body p-4">
+                        <i class="bi bi-display text-primary fs-1"></i>
+                        <h4 class="h6 fw-bold mt-3">
+                            Desktop
+                        </h4>
+                        <p class="small text-secondary mb-0">
+                            Phát triển ứng dụng desktop
+                            với Windows Forms hoặc WPF.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 bg-light text-center">
+                    <div class="card-body p-4">
+                        <i class="bi bi-phone text-primary fs-1"></i>
+                        <h4 class="h6 fw-bold mt-3">
+                            Mobile
+                        </h4>
+                        <p class="small text-secondary mb-0">
+                            Phát triển ứng dụng mobile
+                            với .NET MAUI.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Cloud -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 bg-light text-center">
+                    <div class="card-body p-4">
+                        <i class="bi bi-cloud text-primary fs-1"></i>
+                        <h4 class="h6 fw-bold mt-3">
+                            Cloud / API
+                        </h4>
+                        <p class="small text-secondary mb-0">
+                            Xây dựng Web API,
+                            dịch vụ và ứng dụng cloud.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         3. MVC
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">03.</span>
+            Giới thiệu tổng quan về MVC
+        </h2>
+        <p>
+            <strong>MVC (Model - View - Controller)</strong> là một
+            mô hình kiến trúc được sử dụng để tổ chức ứng dụng thành
+            các thành phần có trách nhiệm riêng biệt.
+        </p>
+        <p>
+            Việc phân tách ứng dụng thành Model, View và Controller
+            giúp mã nguồn dễ tổ chức, bảo trì và mở rộng hơn.
+        </p>
+        <div class="card border-0 bg-light my-4">
+            <div class="card-body p-4">
+                <div class="row align-items-center text-center g-3">
+                    <!-- Model -->
+                    <div class="col-12 col-md-3">
+                        <div class="p-3">
+                            <i class="bi bi-database text-primary fs-1"></i>
+                            <h3 class="h5 fw-bold mt-2">
+                                Model
+                            </h3>
+                            <p class="small text-secondary mb-0">
+                                Quản lý dữ liệu và
+                                nghiệp vụ của ứng dụng.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="col-md-1 d-none d-md-block">
+                        <i class="bi bi-arrow-right fs-3 text-secondary"></i>
+                    </div>
+                    <!-- Controller -->
+                    <div class="col-12 col-md-3">
+                        <div class="p-3">
+                            <i class="bi bi-diagram-3 text-primary fs-1"></i>
+                            <h3 class="h5 fw-bold mt-2">
+                                Controller
+                            </h3>
+                            <p class="small text-secondary mb-0">
+                                Tiếp nhận request và
+                                điều phối xử lý.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="col-md-1 d-none d-md-block">
+                        <i class="bi bi-arrow-right fs-3 text-secondary"></i>
+                    </div>
+                    <!-- View -->
+                    <div class="col-12 col-md-3">
+                        <div class="p-3">
+                            <i class="bi bi-window text-primary fs-1"></i>
+                            <h3 class="h5 fw-bold mt-2">
+                                View
+                            </h3>
+                            <p class="small text-secondary mb-0">
+                                Hiển thị dữ liệu và
+                                giao diện cho người dùng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-primary border-0">
+            <div class="d-flex">
+                <i class="bi bi-lightbulb-fill me-2 mt-1"></i>
+                <div>
+                    <strong>Trong học phần:</strong>
+                    chúng ta sẽ sử dụng ASP.NET Core MVC để xây dựng
+                    các chức năng quản lý như danh sách, thêm, sửa,
+                    xóa và tìm kiếm dữ liệu.
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         4. CODE FIRST
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">04.</span>
+            Giới thiệu về Code First
+        </h2>
+        <p>
+            <strong>Code First</strong> là phương pháp phát triển
+            cơ sở dữ liệu trong đó lập trình viên bắt đầu bằng việc
+            xây dựng các lớp C# để mô tả dữ liệu và mối quan hệ
+            giữa các đối tượng.
+        </p>
+        <p>
+            Từ các lớp C#, Entity Framework Core có thể sử dụng
+            thông tin mô hình để tạo hoặc thay đổi cấu trúc
+            cơ sở dữ liệu thông qua cơ chế <strong>Migration</strong>.
+        </p>
+        <div class="card border-0 bg-light my-4">
+            <div class="card-body">
+                <div class="row align-items-center text-center g-3">
+                    <div class="col-12 col-md-3">
+                        <i class="bi bi-filetype-cs text-primary fs-1"></i>
+                        <div class="fw-bold mt-2">
+                            C# Classes
+                        </div>
+                        <small class="text-secondary">
+                            Khai báo Model
+                        </small>
+                    </div>
+                    <div class="col-md-1 d-none d-md-block">
+                        <i class="bi bi-arrow-right fs-3"></i>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <i class="bi bi-arrow-repeat text-primary fs-1"></i>
+                        <div class="fw-bold mt-2">
+                            Migration
+                        </div>
+                        <small class="text-secondary">
+                            Theo dõi thay đổi
+                        </small>
+                    </div>
+                    <div class="col-md-1 d-none d-md-block">
+                        <i class="bi bi-arrow-right fs-3"></i>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <i class="bi bi-database text-primary fs-1"></i>
+                        <div class="fw-bold mt-2">
+                            Database
+                        </div>
+                        <small class="text-secondary">
+                            Cơ sở dữ liệu
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="h5 fw-bold mt-4">
+            Ví dụ
+        </h3>
+        <pre class="bg-dark text-light rounded p-3"><code>public class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+}</code></pre>
+        <p class="text-secondary small mt-2">
+            Từ lớp <code>Student</code>, Entity Framework Core
+            có thể ánh xạ mô hình này thành một bảng tương ứng
+            trong cơ sở dữ liệu.
+        </p>
+    </section>
+    <!-- =====================================================
+         5. ENTITY FRAMEWORK CORE
+    ====================================================== -->
+    <section class="mb-5">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">05.</span>
+            Giới thiệu về Entity Framework Core
+        </h2>
+        <p>
+            <strong>Entity Framework Core (EF Core)</strong> là một
+            Object-Relational Mapper (ORM) dành cho .NET. EF Core
+            cho phép lập trình viên làm việc với cơ sở dữ liệu
+            thông qua các đối tượng và lớp C# thay vì phải viết
+            toàn bộ câu lệnh SQL thủ công.
+        </p>
+        <p>
+            EF Core đóng vai trò quan trọng trong việc kết nối
+            ứng dụng ASP.NET Core MVC với cơ sở dữ liệu.
+        </p>
+        <div class="row g-3 mt-3">
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 bg-light">
+                    <div class="card-body">
+                        <i class="bi bi-database text-primary fs-2"></i>
+                        <h3 class="h6 fw-bold mt-3">
+                            Database
+                        </h3>
+                        <p class="small text-secondary mb-0">
+                            Lưu trữ dữ liệu của hệ thống.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 bg-light">
+                    <div class="card-body">
+                        <i class="bi bi-arrow-left-right text-primary fs-2"></i>
+                        <h3 class="h6 fw-bold mt-3">
+                            Entity Framework Core
+                        </h3>
+                        <p class="small text-secondary mb-0">
+                            Ánh xạ giữa đối tượng C#
+                            và dữ liệu trong Database.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 bg-light">
+                    <div class="card-body">
+                        <i class="bi bi-code-slash text-primary fs-2"></i>
+                        <h3 class="h6 fw-bold mt-3">
+                            C# Application
+                        </h3>
+                        <p class="small text-secondary mb-0">
+                            Sử dụng các đối tượng C#
+                            để thao tác với dữ liệu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="h5 fw-bold mt-4">
+            Một số chức năng chính
+        </h3>
+        <div class="list-group list-group-flush mt-3">
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Kết nối ứng dụng với cơ sở dữ liệu
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Ánh xạ Class C# với Table trong Database
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Truy vấn dữ liệu bằng LINQ
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Thực hiện các thao tác CRUD
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Quản lý thay đổi cơ sở dữ liệu bằng Migration
+            </div>
+        </div>
+    </section>
+    <!-- =====================================================
+         6. MỐI QUAN HỆ CÁC CÔNG NGHỆ
+    ====================================================== -->
+    <section class="mb-4">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">06.</span>
+            Mối quan hệ giữa các công nghệ
+        </h2>
+        <p>
+            Các công nghệ được giới thiệu trong bài học không hoạt động
+            độc lập mà kết hợp với nhau để tạo thành kiến trúc của
+            ứng dụng quản lý.
+        </p>
+        <div class="card border-0 bg-light">
+            <div class="card-body p-4">
+                <div class="text-center">
+                    <div class="fw-bold fs-5">
+                        ASP.NET Core MVC
+                    </div>
+                    <small class="text-secondary">
+                        Xây dựng Web Application
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5 text-primary">
+                        C#
+                    </div>
+                    <small class="text-secondary">
+                        Ngôn ngữ lập trình
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5">
+                        Entity Framework Core
+                    </div>
+                    <small class="text-secondary">
+                        Làm việc với dữ liệu
+                    </small>
+                    <div class="my-3">
+                        <i class="bi bi-arrow-down fs-4"></i>
+                    </div>
+                    <div class="fw-bold fs-5">
+                        SQL Server
+                    </div>
+                    <small class="text-secondary">
+                        Lưu trữ dữ liệu
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Summary -->
+    <!-- =====================================================
+         7. CÁC KIẾN THỨC SINH VIÊN CẦN TỰ CHUẨN BỊ
+    ====================================================== -->
+    <section class="mb-4">
+        <h2 class="h4 fw-bold mb-3">
+            <span class="text-primary me-2">07.</span>
+            Các kiến thức sinh viên cần tự chuẩn bị
+        </h2>
+        <p>
+            Để theo kịp tiến độ học phần, sinh viên cần chuẩn bị các kiến thức cơ bản về lập trình C#, HTML, CSS và
+            JavaScript. Ngoài ra, việc làm quen với môi trường phát triển Visual Studio và các công cụ quản lý cơ sở dữ
+            liệu cũng sẽ giúp sinh viên nắm bắt nội dung học phần một cách hiệu quả hơn.
+        </p>
+        <div class="list-group list-group-flush mt-3">
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                HTML cơ bản: Cấu trúc tài liệu, thẻ, thuộc tính và cách tạo các phần tử giao diện.
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                CSS cơ bản: Cấu trúc, selector, thuộc tính và cách áp dụng style cho các phần tử HTML.
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                CSS nâng cao: Cách sử dụng framework CSS để xây dựng giao diện responsive.
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                JavaScript cơ bản: Biến, hàm, sự kiện và cách tương tác với DOM.
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                JavaScript nâng cao: Các khái niệm nâng cao trong JavaScript và cách sử dụng các thư viện nổi bật.
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                C# cơ bản: Biến, kiểu dữ liệu, điều kiện, vòng lặp, phương thức và lớp.
+            </div>
+            <div class="list-group-item border-0 px-0 py-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                C# nâng cao: Lập trình hướng đối tượng và các khái niệm nâng cao khác.
+            </div>
+        </div>
+    </section>
+    <!-- Summary -->
+    <div class="alert alert-primary border-0 mt-4">
+        <div class="d-flex">
+            <i class="bi bi-lightbulb-fill me-2 mt-1"></i>
+            <div>
+                <strong>Tóm tắt:</strong>
+                <span>
+                    Trong học phần này, chúng ta sử dụng
+                    <strong>.NET 10</strong> làm nền tảng,
+                    <strong>C#</strong> làm ngôn ngữ lập trình,
+                    <strong>ASP.NET Core MVC</strong> để xây dựng
+                    ứng dụng web và <strong>Entity Framework Core</strong>
+                    để làm việc với cơ sở dữ liệu theo phương pháp
+                    <strong>Code First</strong>.
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
